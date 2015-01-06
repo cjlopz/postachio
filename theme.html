@@ -19,8 +19,36 @@
       <link href="http://postach.io/static/themes/_assets/fontawesome/css/font-awesome-ie7.min.css" rel="stylesheet">
     <![endif]-->
 
-    <!--
+ 
     <style>
+     .categories ul {
+    list-style: none;
+    margin: 0;
+  }
+
+  .categories li {
+    padding-bottom: 0.5em;
+  }
+
+  .categories a,
+  .categories a:visited {
+    display: block;
+    background: #2eb18d;
+    color: #FFF;
+    padding: 0.5em 0.75em;
+    border-radius: 3px;
+  }
+
+  .categories a:hover,
+  .categories a:focus,
+  .categories a.active {
+    text-decoration: none;
+    background: #d84c30;
+  }
+
+  .categories a:active {
+    background: #b33a22;
+  }
       /**
        * Your custom override CSS goes here. If you wanted to override the default link colour and hover state, you would do this:
        *
@@ -144,6 +172,13 @@
             {{ theme.social.bar }}
 
             {% if post.tags %}
+            <nav class="categories">
+            <h4>Categories</h4>
+            <ul>
+    <li><a href="/tag/escribir" class="{{ set_active('/tag/escribir') }}">Escribir</a></li>
+    <li><a href="/tag/meditaciones" class="{{ set_active('/tag/meditaciones') }}">Meditaciones</a></li>
+  </ul>
+            </nav>
             <ul class="tags">
               {% for tag in post.tags %}
                 <li><a href="/tag/{{ tag }}">#{{ tag }}</a></li>
